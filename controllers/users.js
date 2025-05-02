@@ -1,5 +1,5 @@
 import UsersModel from "../models/users.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { generateToken } from "../helpers/authentication.js";
 
 class UsersController {

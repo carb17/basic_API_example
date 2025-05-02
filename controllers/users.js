@@ -24,7 +24,7 @@ class UsersController {
       res.status(201).json(data);
     } catch (e) {
       console.log(e);
-      res.status(500).send(e);
+      res.status(500).json({ message: "Error al registrar el usuario." });
     }
   }
 

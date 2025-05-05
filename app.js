@@ -13,7 +13,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/users", routesUsers);
 app.use("/doc", swaggerUI.serve, swaggerUI.setup(swaggerDocumentation));
 app.get("/", (req, res) => {
+<<<<<<< HEAD
   res.send("La API está funcionando correctamente 🚀");
+=======
+  res.send("La API está funcionando correctamente.");
+>>>>>>> 26d8cd4ab530de85c5f03e27c98524df795d52a0
 });
 
 try {

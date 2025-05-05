@@ -10,7 +10,7 @@ class UsersModel {
     return await User.findOne(filter);
   }
 
-  static async getAllMdl() {
+  async getAllMdl() {
     return await User.find();
   }
 

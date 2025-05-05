@@ -6,16 +6,12 @@ class UsersModel {
     return await User.create(user);
   }
 
-  // async getAllMdl() {
-  //   return await User.find();
-  // }
-
-  // async getOneByIdMdl(id) {
-  //   return await User.findById(_id);
-  // }
-
   async getOneMdl(filter) {
     return await User.findOne(filter);
+  }
+
+  static async getAllMdl() {
+    return await User.find();
   }
 
   async updateMdl(id, user) {
@@ -27,12 +23,6 @@ class UsersModel {
       { new: true }
     );
   }
-
-  // async deleteMdl(id) {
-  //   return await User.findOneAndDelete({
-  //     _id: new mongoose.Types.ObjectId(id),
-  //   });
-  // }
 }
 
 export default new UsersModel();

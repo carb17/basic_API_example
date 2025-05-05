@@ -1,5 +1,5 @@
 import UsersModel from "../models/users.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { generateToken } from "../helpers/authentication.js";
 
 class UsersController {
@@ -24,7 +24,7 @@ class UsersController {
       res.status(201).json(data);
     } catch (e) {
       console.log(e);
-      res.status(500).send(e);
+      res.status(500).json({ message: "Error al registrar el usuario." });
     }
   }
 
@@ -57,15 +57,6 @@ class UsersController {
     }
   }
 
-  // async getAllCtr(req, res) {
-  //   try {
-  //     const data = await UsersModel.getAllMdl();
-  //     res.status(201).json(data);
-  //   } catch (e) {
-  //     res.status(500).send(e);
-  //   }
-  // }
-
   async getOneCtr(req, res) {
     try {
       const { email } = req.params;
@@ -76,15 +67,15 @@ class UsersController {
     }
   }
 
-  // async deleteCtr(req, res) {
-  //   try {
-  //     const { id } = req.params;
-  //     const data = await UsersModel.deleteMdl(id);
-  //     res.status(206).json(data);
-  //   } catch (e) {
-  //     res.status(500).send(e);
-  //   }
-  // }
+  async getAllCtr(req, res) {
+    try {
+      const { email } = req.params;
+      const data = await UsersModel.getAllMdl(email);
+      res.status(200).json(data);
+    } catch (e) {
+      res.status(500).json({ message: "Error al obtener los usuarios." });
+    }
+  }
 }
 
 export default new UsersController();

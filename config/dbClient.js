@@ -7,26 +7,14 @@ class dbClient {
   }
   async connect() {
     const queryString = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}@${process.env.SERVER_DB}/Registro?retryWrites=true&w=majority`;
-    // this.client = new MongoClient(queryString);
+
     try {
       await mongoose.connect(queryString);
       console.log("Servidor conectado a la base de datos");
     } catch (e) {
       console.error("Error al conectar con la base de datos: ", e);
     }
-
-    // this.conectarDB();
   }
-
-  // async conectarDB() {
-  //   try {
-  //     await this.client.connect();
-  //     this.db = this.client.db("Registro");
-  //     console.log("Conectado al servidor de la base de datos.");
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
 
   async closeConnection() {
     try {

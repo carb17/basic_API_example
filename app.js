@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 import routesUsers from "./routes/users.js";
 import bodyParser from "body-parser";
 import dbClient from "./config/dbClient.js";
@@ -8,6 +9,7 @@ import swaggerDocumentation from "./swagger.json" assert { type: "json" };
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/users", routesUsers);

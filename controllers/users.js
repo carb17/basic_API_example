@@ -49,6 +49,11 @@ class UsersController {
   async updateCtr(req, res) {
     try {
       const { id } = req.params;
+      let updatedData = { ...req.body };
+
+      if (updatedData.password) {
+        updatedData.password = await bcrypt.hash(updatedData.password, 10);
+      }
       const data = await UsersModel.updateMdl(id, req.body);
       res.status(201).json(data);
     } catch (e) {

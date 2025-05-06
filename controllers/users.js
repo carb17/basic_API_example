@@ -52,9 +52,10 @@ class UsersController {
       let updatedData = { ...req.body };
 
       if (updatedData.password) {
+        // Hashear la nueva contraseña
         updatedData.password = await bcrypt.hash(updatedData.password, 10);
       }
-      const data = await UsersModel.updateMdl(id, req.body);
+      const data = await UsersModel.updateMdl(id, updatedData);
       res.status(201).json(data);
     } catch (e) {
       console.log(e);

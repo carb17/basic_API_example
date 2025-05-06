@@ -19,7 +19,6 @@ class dbClient {
   async closeConnection() {
     try {
       await mongoose.disconnect();
-      // await this.client.close();
       console.log("Conexión a la base de datos cerrada");
     } catch (e) {
       console.error("Error al cerrar la conexión: ", e);

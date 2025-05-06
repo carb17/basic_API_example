@@ -8,5 +8,6 @@ route.post("/register", UsersController.registerCtr);
 route.post("/login", UsersController.loginCtr);
 route.put("/:id", verifyToken, UsersController.updateCtr);
 route.get("/users", UsersController.getAllCtr);
+route.get("/:id", UsersController.getOneCtr);
 
 export default route;

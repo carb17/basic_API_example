@@ -65,8 +65,8 @@ class UsersController {
 
   async getOneCtr(req, res) {
     try {
-      const { email } = req.params;
-      const data = await UsersModel.getOneMdl(email);
+      const { id } = req.params;
+      const data = await UsersModel.getOneMdl({ _id: id });
       res.status(201).json(data);
     } catch (e) {
       res.status(500).send(e);

@@ -1,6 +1,8 @@
-import UsersModel from "../models/users.js";
-import bcrypt from "bcryptjs";
-import { generateToken } from "../helpers/authentication.js";
+import UsersModel from '../models/users.js';
+
+import bcrypt from 'bcryptjs';
+
+import { generateToken } from '../helpers/authentication.js';
 
 class UsersController {
   constructor() {}
@@ -10,7 +12,7 @@ class UsersController {
       const { email, password, role } = req.body;
       const userExist = await UsersModel.getOneMdl({ email });
       if (userExist) {
-        return res.status(400).json({ error: "El usuario ya existe." });
+        return res.status(400).json({ error: 'The user ALREADY EXISTS' });
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -24,7 +26,7 @@ class UsersController {
       res.status(201).json(data);
     } catch (e) {
       console.log(e);
-      res.status(500).json({ message: "Error al registrar el usuario." });
+      res.status(500).json({ message: 'ERROR registering user' });
     }
   }
 
@@ -33,17 +35,17 @@ class UsersController {
 
     const userExist = await UsersModel.getOneMdl({ email });
     if (!userExist) {
-      return res.status(400).json({ error: "El usuario no existe." });
+      return res.status(400).json({ error: 'The user DOES NOT EXIST' });
     }
 
     const validKey = await bcrypt.compare(password, userExist.password);
     if (!validKey) {
-      return res.status(400).json({ error: "La constraseña no es correcta." });
+      return res.status(400).json({ error: 'The password is INCORRECT' });
     }
 
     const token = generateToken(email);
 
-    res.status(200).json({ msg: "Usuario autenticado.", token });
+    res.status(200).json({ msg: 'AUTHENTICATED user', token });
   }
 
   async updateCtr(req, res) {
@@ -78,7 +80,7 @@ class UsersController {
       const data = await UsersModel.getAllMdl(email);
       res.status(200).json(data);
     } catch (e) {
-      res.status(500).json({ message: "Error al obtener los usuarios." });
+      res.status(500).json({ message: 'ERROR retrieving users' });
     }
   }
 }

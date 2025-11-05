@@ -1,15 +1,15 @@
-import swaggerAutogen from "swagger-autogen";
+import swaggerAutogen from 'swagger-autogen';
 
-const outputFile = "./swagger.json";
-const endPointsFiles = ["./app.js"];
+const outputFile = './swagger.json';
+const endPointsFiles = ['./app.js'];
 
 const doc = {
   info: {
-    title: "API de usuarios",
-    description: "Esta API permite gestionar usuarios",
+    title: 'User API',
+    description: 'This API allows you to manage users',
   },
-  host: "localhost:5100",
-  schemes: ["http"],
+  host: '"localhost:3000"',
+  schemes: ['http'],
 };
 
 swaggerAutogen()(outputFile, endPointsFiles, doc);

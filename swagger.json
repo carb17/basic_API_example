@@ -1,15 +1,13 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "API de usuarios",
-    "description": "Esta API permite gestionar usuarios",
+    "title": "User API",
+    "description": "This API allows you to manage users",
     "version": "1.0.0"
   },
-  "host": "localhost:5100",
+  "host": "'localhost:3000'",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/users/register": {
       "post": {

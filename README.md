@@ -1,7 +1,7 @@
 # User API 
 
-![Node.js](https://img.shields.io/badge/Node.js-v18.x-green)
 ![MongoDB](https://img.shields.io/badge/MongoDB-v6.x-green)
+![Node.js](https://img.shields.io/badge/Node.js-v18.x-green)
 ![Express](https://img.shields.io/badge/Express-5.x-blue)
 
 Example API for **registering and managing users** using Node.js, Express, MongoDB/Mongoose, JWT, and Swagger.
